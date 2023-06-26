@@ -21,12 +21,12 @@ func New() *Spinner {
 
 func (s *Spinner) Start() {
 	s.IsSpinning = true
-	go func() { // Start the spinner in a separate goroutine so it is non-blocking.
+	go func() { // Start the spinner in a separate go routine, so it is non-blocking.
 		for {
 			for _, r := range s.SpecialChar {
 				if !s.IsSpinning {
 					// Clear the line before printing "Done!".
-					fmt.Printf("\r%-*s", 50, "") // assuming line can be 20 chars long.
+					fmt.Printf("\r%-*s", 50, "") // assuming line can be 50 chars long.
 					fmt.Printf("\rDone!\n")
 					return
 				}
