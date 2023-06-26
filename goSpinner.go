@@ -26,12 +26,12 @@ func (s *Spinner) Start() {
 			for _, r := range s.SpecialChar {
 				if !s.IsSpinning {
 					// Clear the line before printing "Done!".
-					fmt.Printf("\r%-*s", 20, "") // assuming line can be 20 chars long.
-					fmt.Printf("\rDone!\n")      // Override the spinner when done.
+					fmt.Printf("\r%-*s", 50, "") // assuming line can be 20 chars long.
+					fmt.Printf("\rDone!\n")
 					return
 				}
 				fmt.Printf("\rWorking.... %c ", r)
-				time.Sleep(100 * time.Millisecond)
+				time.Sleep(115 * time.Millisecond)
 			}
 		}
 	}()
@@ -39,4 +39,5 @@ func (s *Spinner) Start() {
 
 func (s *Spinner) Stop() {
 	s.IsSpinning = false
+	time.Sleep(1 * time.Second)
 }
