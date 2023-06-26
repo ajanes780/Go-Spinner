@@ -30,4 +30,4 @@ go.work
 
 # Binary
 bin/
-testing/
+local/
