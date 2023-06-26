@@ -21,7 +21,7 @@ func New() *Spinner {
 
 func (s *Spinner) Start() {
 	s.IsSpinning = true
-	go func() {
+	go func() { // Start the spinner in a separate goroutine so it is non-blocking.
 		for {
 			for _, r := range s.SpecialChar {
 				if !s.IsSpinning {
